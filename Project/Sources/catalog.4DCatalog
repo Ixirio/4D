@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE base SYSTEM "http://www.4d.com/dtd/2007/base.dtd" >
+<base name="IUT_BD_DELAIRE_JULES" uuid="15A9F206D1FFCE4DBC63A61F447CA2DC" collation_locale="fr">
+	<schema name="DEFAULT_SCHEMA"/>
+	<table name="EVENEMENT" uuid="BEA9CEC3A53F9844AB31488C4B999719" id="1" leave_tag_on_delete="true" prevent_journaling="true">
+		<field name="ID" uuid="E6532CB09C852D49AAABE21F69FCA622" type="4" unique="true" autosequence="true" id="1"/>
+		<field name="Libelle" uuid="FDA09811C7488D43B9D9ADDE421EFE4A" type="10" not_null="true" id="2"/>
+		<field name="Date_debut" uuid="E840C6D973C7254AAA8CDF5724DACA49" type="8" not_null="true" id="3"/>
+		<field name="Date_fin" uuid="2DFEF3156D3B7445A11B99658A798E2E" type="8" not_null="true" id="4"/>
+		<primary_key field_name="ID" field_uuid="E6532CB09C852D49AAABE21F69FCA622"/>
+		<table_extra>
+			<editor_table_info fields_ordering="1" displayable_fields_count="6">
+				<color red="255" green="255" blue="255" alpha="0"/>
+				<coordinates left="40" top="40" width="120" height="167.33203125"/>
+			</editor_table_info>
+		</table_extra>
+	</table>
+	<table name="BOUTIQUE" uuid="46C29352A466D24385B664C8C13990DB" id="2" leave_tag_on_delete="true" prevent_journaling="true">
+		<field name="ID" uuid="32D0CFDC36354E478AD945C62C45742F" type="4" unique="true" autosequence="true" id="1"/>
+		<field name="Nom" uuid="C08723E9AC16BA4FAE151F33A2D7014D" type="10" not_null="true" id="2"/>
+		<field name="ID_Evenement" uuid="4CA7B40357ACF040A1C561AD243E9D97" type="4" id="3"/>
+		<primary_key field_name="ID" field_uuid="32D0CFDC36354E478AD945C62C45742F"/>
+		<table_extra>
+			<editor_table_info fields_ordering="1" displayable_fields_count="6">
+				<color red="255" green="255" blue="255" alpha="0"/>
+				<coordinates left="240" top="40" width="129" height="179.33203125"/>
+			</editor_table_info>
+		</table_extra>
+	</table>
+	<relation uuid="FAC9001328FEAC4D84B00BBD3A5E60E5" name_Nto1="fk_evenementM1R" name_1toN="fk_evenement" auto_load_Nto1="false" auto_load_1toN="false" foreign_key="true" state="1" integrity="reject">
+		<related_field kind="source">
+			<field_ref uuid="4CA7B40357ACF040A1C561AD243E9D97" name="ID_Evenement">
+				<table_ref uuid="46C29352A466D24385B664C8C13990DB" name="BOUTIQUE"/>
+			</field_ref>
+		</related_field>
+		<related_field kind="destination">
+			<field_ref uuid="E6532CB09C852D49AAABE21F69FCA622" name="ID">
+				<table_ref uuid="BEA9CEC3A53F9844AB31488C4B999719" name="EVENEMENT"/>
+			</field_ref>
+		</related_field>
+	</relation>
+	<index kind="regular" unique_keys="true" uuid="649A9FB33B18EB4BA6BD743D5C8DBCF8" type="1">
+		<field_ref uuid="32D0CFDC36354E478AD945C62C45742F" name="ID">
+			<table_ref uuid="46C29352A466D24385B664C8C13990DB" name="BOUTIQUE"/>
+		</field_ref>
+	</index>
+	<index kind="regular" unique_keys="true" uuid="D8CDDC96EA215C46AC546DA11553683A" type="1">
+		<field_ref uuid="E6532CB09C852D49AAABE21F69FCA622" name="ID">
+			<table_ref uuid="BEA9CEC3A53F9844AB31488C4B999719" name="EVENEMENT"/>
+		</field_ref>
+	</index>
+	<base_extra __stringCompHash="icu:68.1.0" __keywordBuildingHash="icu:68.1.0">
+		<journal_file journal_file_enabled="true"/>
+	</base_extra>
+</base>

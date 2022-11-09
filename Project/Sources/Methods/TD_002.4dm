@@ -1,0 +1,12 @@
+//%attributes = {}
+Begin SQL
+	
+	CREATE TABLE IF NOT EXISTS BOUTIQUE (
+	
+	ID INT32 AUTO_INCREMENT PRIMARY KEY,
+	Nom VARCHAR NOT NULL,
+	ID_Evenement INT32
+	
+	);
+	
+End SQL
